@@ -12,8 +12,8 @@ A secure, containerized infrastructure solution combining cloud storage, VPN acc
 - 🐳 **Docker Containerization**
 - 🌐 **Flask Web Application**
 - 🔒 **SSH Access via Ngrok Tunnel**
-- ☁️ **Rclone Cloud Storage Integration**
-- 🛡️ **Tailscale VPN with ACL Controls**
+- ☁️ **Rclone Cloud Storage Integration**(In Final Develoment stage)
+- 🛡️ **Tailscale VPN with ACL Controls(In Pre-Development phase)**
 - 📡 **DNS-over-TLS (Stubby Configuration)**
 - 🔄 **Automated CI/CD Ready**
 
