@@ -20,8 +20,8 @@ app = Flask(__name__)
 def hello_world():
     return (
         "<h1><p style='font-family:monospace'>Checkout "
-        "<a href='https://github.com/x0rzavi/heroku-vpn'>heroku-vpn</a> on GitHub by "
-        "<a href='https://github.com/x0rzavi'>X0rzAvi</a></p></h1>"
+        "<a href='https://github.com/yunus25jmi1/Tailscale-VPN-on-Heroku'>Tailscale-VPN-on-Heroku</a> on GitHub by "
+        "<a href='https://github.com/yunus25jmi1/'>yunus25jmi1</a></p></h1>"
     )
 
 if __name__ == "__main__":
