@@ -12,10 +12,76 @@ A secure, containerized infrastructure solution combining cloud storage, VPN acc
 - 🐳 **Docker Containerization**
 - 🌐 **Flask Web Application**
 - 🔒 **SSH Access via Ngrok Tunnel**
-- ☁️ **Rclone Cloud Storage Integration**(In Final Develoment stage)
-- 🛡️ **Tailscale VPN with ACL Controls(In Pre-Development phase)**
+- ☁️ **Rclone Cloud Storage Integration** (In Final Development Stage)
+- 🛡️ **Tailscale VPN with ACL Controls** (In Pre-Development Phase)
 - 📡 **DNS-over-TLS (Stubby Configuration)**
 - 🔄 **Automated CI/CD Ready**
+
+## Project Timeline
+
+### 🗓️ Dec 2024 - Inception
+```text
+"Can I containerize an entire infrastructure stack?"
+```
+- ✅ Built Dockerized Flask + SSH prototype
+- ✅ Ngrok tunnels for secure external access
+
+### 🗓️ Jan 2025 - Security Foundations
+- 🔒 Implemented Tailscale VPN core
+- 🔐 DNS-over-TLS via Stubby configuration
+- 🛠️ Rclone cloud sync (Google Drive/Dropbox)
+
+### 🗓️ Current Phase (v1.0)
+- 🚀 Automated Heroku/Render deployments
+- 🔄 SFTP-to-Cloud workflow
+
+## Future Roadmap 🚧
+
+### Q2 2025 - Smart Automation Layer
+```mermaid
+graph LR
+  A[Self-Healing Containers] --> B[Auto-Rollback System]
+  C[Tailscale ACL Templates] --> D[RBAC Policies]
+  E[Multi-Cloud Sync] --> F[AWS S3 + Backblaze B2]
+```
+
+- **ACL Policy Engine**
+  - Role-based access controls
+  - Automated tag-based firewall rules
+  ```json
+  {
+    "acls": [
+      {
+        "action": "accept",
+        "src": ["tag:devops"],
+        "dst": ["tag:database:*"],
+        "ports": ["5432"]
+      }
+    ]
+  }
+  ```
+  
+- **Self-Healing Infrastructure**
+  - Automatic container restart on health check failures
+  - Cross-cloud failover capabilities
+
+- **Storage Orchestration**
+  ```bash
+  rclone sync ./backups remote:aws-s3 remote:backblaze --progress
+  ```
+
+### Q3 2025 - Enterprise-Grade Security
+```mermaid
+graph TD
+  A[eBPF Monitoring] --> B[Real-time Introspection]
+  C[AI Threat Detection] --> D[SSH Anomaly Alerts]
+  E[CVE Scanning] --> F[Base Image Security]
+```
+
+- **Advanced Security Features**
+  - eBPF-powered container monitoring
+  - Machine learning-driven SSH anomaly detection
+  - Automated vulnerability scanning for Docker images
 
 ## Prerequisites
 
@@ -304,143 +370,6 @@ graph TD
 - Monitor Tailscale Admin Console regularly
 - Use `rclone config reconnect` for storage tokens
 - Enable 2FA on all connected services
-
-
-## Future Roadmap 🚧
-
-### Q2 2025 - Smart Automation Layer
-```mermaid
-graph LR
-  A[Self-Healing Containers] --> B[Auto-Rollback System]
-  C[Tailscale ACL Templates] --> D[RBAC Policies]
-  E[Multi-Cloud Sync] --> F[AWS S3 + Backblaze B2]
-```
-
-- **ACL Policy Engine**
-  - Role-based access controls
-  - Automated tag-based firewall rules
-  ```json
-  // Sample Network Policy
-  {
-    "acls": [
-      {
-        "action": "accept",
-        "src": ["tag:devops"],
-        "dst": ["tag:database:*"],
-        "ports": ["5432"]
-      }
-    ]
-  }
-  ```
-  
-- **Self-Healing Infrastructure**
-  - Automatic container restart on health check failures
-  - Cross-cloud failover capabilities
-
-- **Storage Orchestration**
-  ```bash
-  # Planned multi-cloud sync command
-  rclone sync ./backups remote:aws-s3 remote:backblaze --progress
-  ```
-
-### Q3 2025 - Security Evolution
-
-- **eBPF Runtime Protection**
-  - Container introspection with BPF-based monitoring
-  - Real-time syscall analysis
-  
-- **Threat Intelligence**
-  - AI-driven SSH anomaly detection
-  ```python
-  # Sample detection logic (Concept)
-  def detect_anomaly(ssh_logs):
-      model.predict(behavior_pattern)
-      if threat_score > 0.8:
-          trigger_automated_response()
-  ```
-  
-- **Supply Chain Security**
-  - Automated CVE scanning for base images
-  - Signed container verification
-  ```
-  [+] Scanning Dockerfile: critical=0 high=2 medium=1
-  [+] CVE-2024-1234 patched in v1.0.1
-  ```
-
-## Deployment Architecture
-
-```mermaid
-graph TD
-    A[Developer] -->|Git Push| B(CI/CD Pipeline)
-    B --> C{Cloud Provider}
-    C --> D[Heroku]
-    C --> E[Render]
-    D --> F[Secure Runtime]
-    E --> F
-    F --> G[Tailscale Mesh]
-    G --> H[Database Tier]
-    G --> I[Storage Tier]
-    I --> J[Cloud Sync]
-```
-
-## Critical Security Features
-
-1. **Ephemeral Authentication**
-   ```bash
-   # Tailscale key rotation
-   curl -u $API_USER https://api.tailscale.com/keys -d '{"expiry_seconds":86400}'
-   ```
-   
-2. **Defense-in-Depth**
-   - SSH Certificate Authority integration
-   - Automated Let's Encrypt Certificates
-   - Namespace isolation for storage services
-
-3. **Compliance Ready**
-   - GDPR-ready audit logging
-   - PCI DSS compliant encryption
-   - SOC2 Type I certified patterns
-
-## Getting Started
-
-1. **Bootstrap Environment**
-   ```bash
-   git clone https://github.com/yunus25jmi1/infrastructureascode-railway.git
-   cd infrastructureascode-railway
-   ./deploy-container/entrypoint.sh --prepare
-   ```
-
-2. **Runtime Configuration**
-   ```yaml
-   # render.yaml (Enhanced)
-   services:
-     - type: web
-       name: secure-gateway
-       security:
-         isolation: full
-         scanning: daily
-       resources:
-         memory: 4GB
-         cpu: 2.0
-   ```
-
-## Contribution Guidelines
-
-We welcome contributions aligned with our 2025 roadmap:
-
-- [ ] Multi-cloud Terraform modules
-- [ ] eBPF monitoring plugins
-- [ ] AI/ML detection models
-- [ ] Hardware Security Module (HSM) integration
-
-**Review Process:** All PRs must pass automated security checks and include threat model analysis.
-
----
-
-[View Full Architecture](https://lnkd.in/gUBsGrza) | [Join Beta Program](mailto:devops@yunus.eu.org)
-
-
------
 
 ## License
 MIT License - See [LICENSE](LICENSE) for full text.
