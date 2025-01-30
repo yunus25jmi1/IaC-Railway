@@ -180,6 +180,45 @@ docker run -d --env-file .env \
   infra-railway
 ```
 
+
+💸 Hosting Cost Analysis
+Railway.app Pricing (2024)
+Tier	Price	Features
+Starter	Free	500 build mins/mo, 1 GB storage
+Standard	$5/user/mo	Unlimited builds, 5 GB storage
+Pro	$15/user/mo	Priority builds, 20 GB storage
+Compared to other platforms:
+
+Platform	Free Tier	Basic Paid Plan
+Heroku	550 dyno-hours	$7/dyno/month
+Render	750 free hours	$7/service/month
+Railway	500 build mins	$5/user/month
+🛠️ Deployment Guide
+Railway.app Configuration
+Create railway.json:
+
+
+```
+{
+  "builds": [
+    {
+      "src": "Dockerfile",
+      "use": "@railway/container"
+    }
+  ],
+  "variables": {
+    "TAILSCALE_AUTHKEY": {
+      "description": "Tailscale auth key",
+      "required": true
+    }
+  }
+}
+```
+Deploy via CLI:
+```bash
+railway login
+railway up --service=infra-railway
+```
 ### Heroku
 1. Set environment variables in Heroku Dashboard
 2. Deploy:
